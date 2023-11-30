@@ -6,4 +6,11 @@ class Cleric {
   final int maximumMp = 50;
 
   Cleric(this.name);
+
+  void selfAid() {
+    if (mp >= 5) {
+      mp -= 5;
+      hp = maximumHp;
+    }
+  }
 }
