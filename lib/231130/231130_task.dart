@@ -17,16 +17,9 @@ class Cleric {
   }
 
   int pray(int second) {
-    final recoverableMP = maximumMp - mp;
-    if (recoverableMP == 0) {
-      return recoverableMP;
-    } else if (recoverableMP < second) {
-      return recoverableMP;
-    } else if (recoverableMP == second) {
-      return recoverableMP;
-    } else {
-      final recoveringMP = second + Random().nextInt(3);
-      return recoverableMP < recoveringMP ? recoverableMP : recoveringMP;
-    }
+    final recoveringMP = second + Random().nextInt(3);
+    final preMP = mp;
+    mp = min(mp + recoveringMP, maximumMp);
+    return mp - preMP;
   }
 }
