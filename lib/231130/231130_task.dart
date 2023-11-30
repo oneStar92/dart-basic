@@ -23,3 +23,15 @@ class Cleric {
     return mp - preMP;
   }
 }
+
+void main() {
+  Cleric cleric = Cleric('Cleric');
+
+  cleric.selfAid();
+  print(cleric.pray(3));
+  cleric.selfAid();
+  cleric.selfAid();
+  print(cleric.mp);
+  print(cleric.pray(50));
+  print(cleric.mp);
+}
