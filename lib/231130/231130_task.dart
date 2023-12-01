@@ -25,13 +25,16 @@ class Cleric {
 }
 
 void main() {
-  Cleric cleric = Cleric('Cleric');
+  // Cleric arthas = Cleric('아서스', hp: 40, mp: 5);
+  // Cleric arthas = Cleric('아서스', hp: 35);
+  Cleric arthas = Cleric('아서스');
+  // Cleric arthas = Cleric(); //Error
 
-  cleric.selfAid();
-  print(cleric.pray(3));
-  cleric.selfAid();
-  cleric.selfAid();
-  print(cleric.mp);
-  print(cleric.pray(50));
-  print(cleric.mp);
+  arthas.selfAid();
+  print(arthas.pray(3));
+  arthas.selfAid();
+  arthas.selfAid();
+  print(arthas.mp);
+  print(arthas.pray(50));
+  print(arthas.mp);
 }
