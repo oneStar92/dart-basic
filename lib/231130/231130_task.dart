@@ -17,6 +17,7 @@ class Cleric {
   }
 
   int pray(int second) {
+    if (second == 0) return 0;
     final randomQuantity = second + Random().nextInt(3);
     final recoverableMP = maximumMp - mp;
     // 회복할 수 있는 양과 랜덤한 양 중 작은 값을 회복할 양으로 할당.
