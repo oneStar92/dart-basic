@@ -17,10 +17,13 @@ class Cleric {
   }
 
   int pray(int second) {
-    final recoveringMP = second + Random().nextInt(3);
-    final preMP = mp;
-    mp = min(mp + recoveringMP, maximumMp);
-    return mp - preMP;
+    final randomQuantity = second + Random().nextInt(3);
+    final recoverableMP = maximumMp - mp;
+    // 회복할 수 있는 양과 랜덤한 양 중 작은 값을 회복할 양으로 할당.
+    // 회복할 수 있는 양이 랜덤한 양보다 작은 경우 회복할 수 있는 양 만큼만 회복하기 위해
+    final recoveringMP = min(randomQuantity, recoverableMP);
+    mp += recoveringMP;
+    return recoveringMP;
   }
 }
 
