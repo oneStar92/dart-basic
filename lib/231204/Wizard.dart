@@ -3,11 +3,11 @@ import 'Wand.dart';
 class Wizard {
   String name;
   int hp;
-  Wand? wand;
+  Wand wand;
 
   Wizard({
     required this.name,
     required this.hp,
-    this.wand,
+    required this.wand,
   });
 }
