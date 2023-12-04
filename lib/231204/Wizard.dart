@@ -3,7 +3,7 @@ import 'Wand.dart';
 class Wizard {
   String _name;
   int _hp;
-  int mp;
+  int _mp;
   Wand wand;
 
   set name(String name) {
@@ -22,10 +22,18 @@ class Wizard {
     }
   }
 
+  set mp(int mp) {
+    if (mp < 0) {
+      Exception("Invalid mp value");
+    } else {
+      _mp = mp;
+    }
+  }
+
   Wizard({
     required name,
     required hp,
-    required this.mp,
+    required mp,
     required this.wand,
-  }) : _name = name, _hp = hp;
+  }) : _name = name, _hp = hp, _mp = mp;
 }
