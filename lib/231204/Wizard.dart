@@ -2,7 +2,7 @@ import 'Wand.dart';
 
 class Wizard {
   String _name;
-  int hp;
+  int _hp;
   int mp;
   Wand wand;
 
@@ -14,10 +14,18 @@ class Wizard {
     }
   }
 
+  set hp(int hp) {
+    if (hp < 0) {
+      _hp = 0;
+    } else {
+      _hp = hp;
+    }
+  }
+
   Wizard({
     required name,
-    required this.hp,
+    required hp,
     required this.mp,
     required this.wand,
-  }) : _name = name;
+  }) : _name = name, _hp = hp;
 }
