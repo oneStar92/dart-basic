@@ -1,11 +1,11 @@
-abstract class TangibleAsset {
-  final String name;
-  final int price;
+import '231205_Asset.dart';
+
+abstract class TangibleAsset extends Asset {
   final String color;
 
   TangibleAsset({
-    required this.name,
-    required this.price,
+    required String name,
+    required int price,
     required this.color
-  });
+  }) : super(name: name, price: price);
 }
