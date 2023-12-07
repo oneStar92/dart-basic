@@ -73,9 +73,9 @@ void main() {
 
   print('Set Length: ${books.length}, List Length: ${bookList.length}');
   print('Before sorting');
-  print(bookList);
+  bookList.forEach(print);
   bookList.sort();
   print('After sorting');
-  print(bookList);
+  bookList.forEach(print);
   print('Deep Copy Result: ${book2.copyWith() == book2}');
 }
