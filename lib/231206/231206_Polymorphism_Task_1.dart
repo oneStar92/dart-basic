@@ -56,4 +56,5 @@ void main() {
   for (var e in list) {
     e.b();
   }
+  list.sort();
 }
