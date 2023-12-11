@@ -1,13 +1,13 @@
 class Book implements Comparable<Book>{
-  String title;
-  DateTime publishDate = DateTime.now();
-  String comment;
+  final String title;
+  final DateTime publishDate;
+  final String comment;
 
   Book({
     required this.title,
-    required this.publishDate,
     required this.comment,
-  });
+    DateTime? publishDate,
+  }) : publishDate = publishDate ?? DateTime.now();
 
   @override
   bool operator ==(Object other) =>
@@ -15,13 +15,13 @@ class Book implements Comparable<Book>{
       (other is Book &&
           runtimeType == other.runtimeType &&
           title == other.title &&
-          publishDate == other.publishDate);
+          publishDate.onlyDate() == other.publishDate.onlyDate());
 
   @override
-  int get hashCode => title.hashCode ^ publishDate.hashCode;
+  int get hashCode => title.hashCode ^ publishDate.onlyDate().hashCode;
 
   @override
-  int compareTo(Book other) => publishDate.compareTo(other.publishDate);
+  int compareTo(Book other) => publishDate.onlyDate().compareTo(other.publishDate.onlyDate());
 
   Book copyWith({
     String? title,
@@ -44,7 +44,6 @@ class Book implements Comparable<Book>{
 void main() {
   final book = Book(
       title: 'Book 1',
-      publishDate: DateTime.now(),
       comment: 'Book1 is Good'
   );
   final book2 = Book(
@@ -83,4 +82,8 @@ void main() {
   final s1 = 'Hello';
 
   print(identical(s, s1));
+}
+
+extension OnlyDate on DateTime {
+  DateTime onlyDate() => DateTime(year, month, day);
 }
