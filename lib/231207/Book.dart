@@ -78,4 +78,9 @@ void main() {
   print('After sorting');
   bookList.forEach(print);
   print('Deep Copy Result: ${book2.copyWith() == book2}');
+
+  final s = 'Hello';
+  final s1 = 'Hello';
+
+  print(identical(s, s1));
 }
