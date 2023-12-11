@@ -10,7 +10,7 @@ class StrongBox<T> {
   }
 
   T? get() {
-    keyCount++;
+    if (keyCount < _key.limitUsingCount) keyCount++;
     return keyCount < _key.limitUsingCount ? null : _instance;
   }
 
