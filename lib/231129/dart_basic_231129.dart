@@ -105,12 +105,6 @@ class Bird extends Animal with Flyable {
   Bird(super.name);
 }
 
-abstract class Pizza {
-  void print() {
-    print("abc");
-  }
-}
-
 void main() {
   var mark50 = Mark50('Mark 51', 'Red');
   mark50.fly();
