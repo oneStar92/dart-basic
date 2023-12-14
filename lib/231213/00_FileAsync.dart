@@ -1,7 +1,7 @@
 import 'dart:io';
 
-Future<String> readFile(String path) async => await File(path).readAsString();
-Future<void> writeFile(String path, String string) async => await File(path).writeAsString(string);
+Future<String> readFile(String path) => File(path).readAsString();
+Future<void> writeFile(String path, String string) => File(path).writeAsString(string);
 
 void main() {
   /*
