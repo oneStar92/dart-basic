@@ -4,6 +4,7 @@ class Post {
   String title;
   String body;
 
+  //<editor-fold desc="Data Methods">
   Post({
     required this.userId,
     required this.id,
@@ -28,4 +29,38 @@ class Post {
       'body': body,
     };
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is Post &&
+          runtimeType == other.runtimeType &&
+          userId == other.userId &&
+          id == other.id &&
+          title == other.title &&
+          body == other.body);
+
+  @override
+  int get hashCode => userId.hashCode ^ id.hashCode ^ title.hashCode ^ body.hashCode;
+
+  @override
+  String toString() {
+    return 'Post{' + ' userId: $userId,' + ' id: $id,' + ' title: $title,' + ' body: $body,' + '}';
+  }
+
+  Post copyWith({
+    int? userId,
+    int? id,
+    String? title,
+    String? body,
+  }) {
+    return Post(
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+      title: title ?? this.title,
+      body: body ?? this.body,
+    );
+  }
+
+  //</editor-fold>
 }
